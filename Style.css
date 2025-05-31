@@ -280,4 +280,8 @@ textarea{
         color: white;
         font-size: large;
     }
+    .banner img{
+        width: 100%;
+        height: 100%;
+    }
 }
