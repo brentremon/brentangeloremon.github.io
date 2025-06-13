@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Style.css">
     <link rel="shortcut icon" href="images/BASKETBALL.png">
+    
     <title>CONTACTUS</title>
 </head>
 <body>
@@ -18,7 +19,7 @@
             
             <div class="navbar">
                 <ul>
-                    <li><a href="INDEX.html">HOMEPAGE</a></li>
+                    <li><a href="index.html">HOMEPAGE</a></li>
                     <li><a href="ABOUTUS.html">ABOUT US</a></li>
                     <li><a href="CONTACTUS.html">CONTACT US</a></li>
                 </ul>
@@ -30,38 +31,41 @@
             <img src="images/bubu.png" alt="">
         </div>
 
-    <form>
+
         <div class="textbackground1">
             
                 <div class="formgroup">
                     <label for="firstName">firstName</label><br>
-                    <input type="text" placeholder="firstName" name="firstName" required>               
+                    <input id="fname" type="text" placeholder="firstName" name="firstName" required>               
                 </div>
 
                 <div class="formgroup">
                     <label for="LastName">LastName</label><br>
-                    <input type="text" placeholder="LastName" name="LastName" required>              
+                    <input id="lname" type="text" placeholder="LastName" name="LastName" required>              
                 </div>
 
                 <div class="formgroup">
                     <label for="Telephone no.">Telephone no.</label><br>
-                    <input type="text" placeholder="Valid format:(123)456-7890, (123)456-7890, 123-456-7890, 123,456,7890" name="Telephone no." required>               
+                    <input type="text" id="telephone" placeholder="Telephone no." name="Telephone no." required>               
                 </div>
 
                 <div class="formgroup">
                     <label for="Email">Email</label><br>
-                    <input type="text" placeholder="Sample@host.com" name="Email" required>              
+                    <input id="Email" placeholder="Sample@host.com" name="Email" required>              
                 </div>
 
                 <div class="formgroup">
                     <label for="Organization">Organization</label><br>
-                    <input type="text" placeholder="" name="Organization" required>              
+                    <input id="Organization" placeholder="" name="Organization" required>              
                 </div> 
 
                 <div class="formgroup">
                     <label for="Province">Province</label><br>
                     <select id="province" name="province">
                         <option value="" disabled selected hidden>Select Your Province</option>
+                        <option value="Davao Del Norte">Davao Del Norte</option>
+                        <option value="Davao De Oro">Davao De Oro</option>
+                        <option value="Davao Oriental">Davao Oriental</option>
                     </select>              
                 </div>
 
@@ -69,6 +73,9 @@
                     <label for="City/Town">City/Town</label><br>
                     <select id="City/Town" name="City/Town">
                         <option value="" disabled selected hidden>Select Your Municipality or City</option>
+                        <option value="Tagum">Tagum City</option>
+                        <option value="Panabo City">Panabo City</option>
+                        <option value="Davao City">Davao City</option>
                     </select>              
                 </div>
 
@@ -76,12 +83,15 @@
                     <label for="Barangay">Barangay</label><br>
                     <select id="Barangay" name="Barangay">
                         <option value="" disabled selected hidden>Select Your Barangay</option>
+                        <option value="Mankilam">Mankilam</option>
+                        <option value="la filipina">La filipina</option>
+                        <option value="Pagsabangan">Pagsabangan</option>
                     </select>              
                 </div>
 
                 <div class="formgroup">
                     <label for="Street">Street</label><br>
-                    <input type="text" placeholder="" name="Street" required>              
+                    <input id="Street" placeholder="" name="Street" required>              
                 </div>
                 
                 <div class="formgroup">
@@ -90,15 +100,73 @@
                 </div>
 
                 <div class="btn-submit">
-                    <button>Submit</button>
+                    <button onclick="Submit()">Submit</button>
                 </div>
             
         </div>
-    </form>           
-</nav><br>
+      
+</nav><br><br><br><br>
 
     <footer>
         <h4>Copyright(c)2022,JQE,Friends</h4>
     </footer>
 </body>
+
+    <script>
+
+                
+
+
+                   function Submit() {
+    
+
+    let fname = document.getElementById("fname").value;
+    let lname = document.getElementById("lname").value;
+    let telephone = document.getElementById("telephone").value.trim();
+    let Email = document.getElementById("Email").value;
+    let Organization = document.getElementById("Organization").value;
+    let Province = document.getElementById("province").value;
+    let Citytown = document.getElementById("City/Town").value;
+    let Barangay = document.getElementById("Barangay").value;
+    let Street = document.getElementById("Street").value;
+    let Message = document.getElementById("Message").value;
+
+    if (
+        fname === "" || lname === "" || telephone === "" ||
+        Email === "" || Organization === "" || Province === "" ||
+        Citytown === "" || Barangay === "" || Street === "" || Message === ""
+    ) {
+        alert("There is an empty input");
+
+    }
+
+    if (fname === lname) {
+        alert("First name and last name cannot be the same.");
+      
+    }
+
+    if (!/^\d+$/.test(telephone)) {
+    alert("Telephone must contain numbers only.");   
+    }
+
+    if (Message.length <= 10) {
+        alert("The message must be more than 10 characters.");
+       
+    }
+
+    if (
+        Province !== "Davao Del Norte" ||
+        Citytown !== "Tagum" ||
+        Barangay !== "Mankilam"
+    ) {
+        alert("false");
+      
+    }
+    
+
+    
+}
+    </script>
+
+
 </html>
